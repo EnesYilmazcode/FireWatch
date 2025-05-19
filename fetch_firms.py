@@ -4,10 +4,12 @@ from io import StringIO
 import folium
 import datetime # To get today's date
 import os       # To create directories if they don't exist
-from map_key import api_key
+from dotenv import load_dotenv  
+
+load_dotenv()
 
 # === CONFIG ===
-API_KEY = api_key
+API_KEY = os.getenv("API_KEY")
 SOURCE = "VIIRS_SNPP_NRT"  # This is the <SOURCE> parameter for FIRMS
 DAY_RANGE = 1              # For "last 24h", use 1 day
 ACQ_DATE = datetime.date.today().strftime('%Y-%m-%d') # Date in YYYY-MM-DD format
